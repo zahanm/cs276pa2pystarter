@@ -22,5 +22,6 @@
 # (you should test your code the same way)
 
 # /usr/pubsw/bin/java -Xmx1000m NaiveBayesClassifier $1 train.gz
-echo 'Modify to run Python classifier'
+
+python naive_bayes_classifier.py $1 out.pk
 
