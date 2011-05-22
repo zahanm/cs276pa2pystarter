@@ -3,7 +3,7 @@ from __future__ import print_function
 
 import sys, re
 
-from counter import Counter
+from collections import Counter
 
 SUBJECT_TAG = "Subject: "
 
@@ -40,18 +40,18 @@ class MessageFeatures:
   def parse_line(self, line, counts, stemmer, stopwords):
     line = line.lower()
     for linkmatch in HYPERLINK_RE.finditer(line):
-      counts.inc_count(linkmatch.group(0))
+      counts[linkmatch.group(0)] += 1
     for emailmatch in EMAIL_RE.finditer(line):
-      counts.inc_count(emailmatch.group(0))
+      counts[emailmatch.group(0)] += 1
     for token in DELIMS_RE.split(line):
       if len(token) < MAX_TOKEN_LEN:
         if NUM_RE.match(token):
-          counts.inc_count(token)
+          counts[token] += 1
         else:
           stemmed = stemmer.stem(token, 0, len(token)-1)
           if WORD_RE.match(stemmed) and len(stemmed) > MIN_WORD_LEN and \
             stemmed not in stopwords:
-            counts.inc_count(stemmed)
+            counts[stemmed] += 1
 
 
 if __name__ == '__main__':
