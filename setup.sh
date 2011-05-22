@@ -17,5 +17,5 @@
 # preprocess the data
 # /usr/pubsw/bin/java -Xmx800m MessageParser $1 train.gz
 
-python message_parser.py data/ out.pk
+python message_parser.py $1 out.pk
 
