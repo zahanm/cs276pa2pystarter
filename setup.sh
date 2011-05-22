@@ -17,5 +17,5 @@
 # preprocess the data
 # /usr/pubsw/bin/java -Xmx800m MessageParser $1 train.gz
 
-echo 'Modify to run Python preprocessing code'
+python message_parser.py data/ out.pk
 

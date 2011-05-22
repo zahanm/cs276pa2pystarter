@@ -31,7 +31,7 @@ class MessageIterator:
 
 def main():
   if len(sys.argv) != 2:
-    print('Usage: python message_iterator <input_file>', file=sys.stderr)
+    print('Usage: python {0} <input_file>'.format(__file__), file=sys.stderr)
     sys.exit(-1)
   mi = MessageIterator(sys.argv[1])
 

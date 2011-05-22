@@ -46,7 +46,7 @@ def parse_newsgroup(group_num, train_dir, writer):
 
 def main():
   if len(sys.argv) != 3:
-    print("Usage: python message_parser <directory> <output_file>")
+    print("Usage: python {0} <directory> <output_file>".format(__file__))
     return
   inp_dir = sys.argv[1]
   out_file = sys.argv[2]
