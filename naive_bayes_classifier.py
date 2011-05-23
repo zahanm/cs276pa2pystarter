@@ -3,6 +3,7 @@ from __future__ import print_function
 
 import sys
 
+from collections import Counter
 from message_iterator import MessageIterator
 
 def binomial(mi):
@@ -17,13 +18,13 @@ def multinomial(mi):
 def twcnb(mi):
   pass
 
-def output_probability(probabilities):
-  for i, prob in enumerate(probabilities):
+def output_probability(probs):
+  for i, prob in enumerate(probs):
     if i == 0:
       sys.stdout.write("{0:1.8g}".format(prob))
     else:
       sys.stdout.write("\t{0:1.8g}".format(prob))
-    sys.stdout.write("\n")
+  sys.stdout.write("\n")
 
 
 MODES = {

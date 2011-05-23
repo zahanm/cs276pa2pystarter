@@ -10,6 +10,8 @@ class MessageIterator:
     self.inpfile = open(inp_filename, 'rb')
     self.reader = pickle.Unpickler(self.inpfile)
     self.numgroups = self.reader.load()
+    self.tot_msgs = self.reader.load()
+    self.num_msgs = self.reader.load()
 
   def __iter__(self):
     return self

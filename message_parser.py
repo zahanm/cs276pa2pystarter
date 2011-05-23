@@ -28,8 +28,13 @@ def parse_training_dirs(inp_dir, out_file):
     writer = pickle.Pickler(outstream, pickle.HIGHEST_PROTOCOL)
     training_dirs = os.listdir(inp_dir)
     writer.dump(len(training_dirs))
-    for group_num, train_dir in enumerate(training_dirs):
-      parse_newsgroup(group_num, os.path.join(inp_dir,train_dir), writer)
+    num_msgs = [0] * len(training_dirs)
+    for group, train_dir in enumerate(training_dirs):
+      num_msgs[group] = len(os.listdir(os.path.join(inp_dir,train_dir)))
+    writer.dump(sum(num_msgs))
+    writer.dump(num_msgs)
+    for group, train_dir in enumerate(training_dirs):
+      parse_newsgroup(group, os.path.join(inp_dir,train_dir), writer)
 
 def parse_newsgroup(group_num, train_dir, writer):
   try:
