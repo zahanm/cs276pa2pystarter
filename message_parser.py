@@ -23,7 +23,7 @@ def load_stopwords():
 
 
 def parse_training_dirs(inp_dir, out_file):
-  inp_dir = inp_dir[:inp_dir.rindex('/')]
+  inp_dir = os.path.abspath(inp_dir)
   with open(out_file, 'wb') as outstream:
     writer = pickle.Pickler(outstream, pickle.HIGHEST_PROTOCOL)
     training_dirs = os.listdir(inp_dir)
