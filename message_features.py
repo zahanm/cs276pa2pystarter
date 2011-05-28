@@ -14,7 +14,7 @@ WORD_RE = re.compile(r"([a-zA-Z'\-]+)")
 ALPHANUM_RE = re.compile(r"(\w+)")
 HYPERLINK_RE = re.compile(r"(http\:\/\/(\w+\.)+\w+)")
 EMAIL_RE = re.compile(r"([\w\-\.]+@[\w\-\.]+)")
-DELIMS_RE = re.compile(r"[\s()\"',-:;/\\?!@]+")
+DELIMS_RE = re.compile(r"[\s\.()\"',-:;/\\?!@]+")
 
 class MessageFeatures:
   
